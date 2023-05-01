@@ -29,9 +29,11 @@ public class StudentDAOImpl implements StudentDAO{
 	}
 
 	@Override
-	public void findById(int id) {
-		// Find the data by id
+	public Student findById(int id) {
+		// TODO Auto-generated method stub
+		return entityManager.find(Student.class, id);
 	}
+
 
 }
 
