@@ -1,5 +1,6 @@
 package com.springdemo.cruddemo;
 
+import java.util.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,11 +21,37 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAOImpl studentDAO) {
 		return runner->{
 			//createStudent(studentDAO);
+			
 			//createMultipleStudents(studentDAO);
-			readStudent(studentDAO);
+			
+			//readStudent(studentDAO);
+			
+			//queryForStudents(studentDAO);
+			
+			queryForStudentsByLastName(studentDAO);
 		};
 	}
 	
+	private void queryForStudentsByLastName(StudentDAOImpl studentDAO) {
+		// TODO Auto-generated method stub
+		List<Student> theStudents = studentDAO.findByLastName("Don");
+		
+		// display list of student
+		for(Student tempStudent: theStudents) {
+			System.out.println(tempStudent);
+		}
+	}
+
+	private void queryForStudents(StudentDAOImpl studentDAO) {
+		// TODO Auto-generated method stub
+		// Get a list of students 
+		List<Student> theStudents = studentDAO.findAll();
+		// display list of students
+		for(Student tempStudent: theStudents) {
+			System.out.println(tempStudent);
+		}
+	}
+
 	private void readStudent(StudentDAOImpl studentDAO) {
 		// TODO Auto-generated method stub
 		// Create Student object
