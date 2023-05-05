@@ -31,7 +31,6 @@ public class CruddemoApplication {
 			//queryForStudentsByLastName(studentDAO);
 			
 			//updateStudent(studentDAO);
-			
 			//deleteStudent(studentDAO);
 			
 			deleteAllStudents(studentDAO);
@@ -53,6 +52,14 @@ public class CruddemoApplication {
 //		
 //		studentDAO.delete(studentId);
 //	}
+
+	private void deleteStudent(StudentDAOImpl studentDAO) {
+		// TODO Auto-generated method stub
+		int studentId = 4; 
+		System.out.println("Deleting student id: "+ studentId);
+		
+		studentDAO.delete(studentId);
+	}
 
 	private void updateStudent(StudentDAOImpl studentDAO) {
 		// TODO Auto-generated method stub
