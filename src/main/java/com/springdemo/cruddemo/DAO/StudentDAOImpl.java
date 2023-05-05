@@ -32,7 +32,7 @@ public class StudentDAOImpl implements StudentDAO{
 	}
 
 	@Override
-	public Student findById(int id) {
+	public Student findById(Integer id) {
 		// TODO Auto-generated method stub
 		return entityManager.find(Student.class, id);
 	}
@@ -65,6 +65,18 @@ public class StudentDAOImpl implements StudentDAO{
 	public void update(Student theStudent) {
 		// TODO Auto-generated method stub
 		entityManager.merge(theStudent);
+	}
+
+	@Override
+	@Transactional
+	public void delete(Integer id) {
+		// TODO Auto-generated method stub
+		// Retrieve the student
+		Student tempStudent = entityManager.find(Student.class, id);
+		
+		// Delete the student.
+		entityManager.remove(tempStudent);
+		
 	}
 	
 
