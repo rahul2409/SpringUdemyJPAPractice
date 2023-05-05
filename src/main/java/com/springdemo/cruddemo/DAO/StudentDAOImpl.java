@@ -78,6 +78,16 @@ public class StudentDAOImpl implements StudentDAO{
 		entityManager.remove(tempStudent);
 		
 	}
+
+	@Override
+	@Transactional
+	public int deleteAll() {
+		// TODO Auto-generated method stub
+		// This will return the lines that are deleted after the update is performed.
+		int numberOfRowsDeleted = entityManager.createQuery("Delete from Student ").executeUpdate();
+		
+		return numberOfRowsDeleted;
+	}
 	
 
 }
