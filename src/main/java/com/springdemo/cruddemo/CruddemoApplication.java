@@ -32,10 +32,20 @@ public class CruddemoApplication {
 			
 			//updateStudent(studentDAO);
 			
-			deleteStudent(studentDAO);
+			//deleteStudent(studentDAO);
+			
+			deleteAllStudents(studentDAO);
 		};
 	}
 	
+	private void deleteAllStudents(StudentDAOImpl studentDAO) {
+		// TODO Auto-generated method stub
+		// Delete all the students in the database
+		int numberOfRowsDeleted = studentDAO.deleteAll();
+		
+		System.out.println("The deleted row count is: "+ numberOfRowsDeleted);
+	}
+
 	private void deleteStudent(StudentDAOImpl studentDAO) {
 		// TODO Auto-generated method stub
 		int studentId = 4; 
